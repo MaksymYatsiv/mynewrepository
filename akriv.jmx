@@ -1,0 +1,792 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.5">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Test Plan" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.tearDown_on_shutdown">true</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Thread Group" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">10</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+      </ThreadGroup>
+      <hashTree>
+        <CookieManager guiclass="CookiePanel" testclass="CookieManager" testname="HTTP Cookie Manager" enabled="true">
+          <collectionProp name="CookieManager.cookies"/>
+          <boolProp name="CookieManager.clearEachIteration">false</boolProp>
+          <boolProp name="CookieManager.controlledByThreadGroup">false</boolProp>
+          <stringProp name="CookieManager.policy">default</stringProp>
+        </CookieManager>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Login" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&quot;UserName&quot;:&quot;CallRBsales&quot;,&quot;UserPassword&quot;:&quot;CallRBsales&quot;,&quot;TimeZoneOffset&quot;:-180}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">bank_test.banklviv.com</stringProp>
+          <stringProp name="HTTPSampler.port">444</stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">ServiceModel/AuthService.svc/Login</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">accept</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">accept-encoding</stringProp>
+                <stringProp name="Header.value">gzip, deflate, br</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">accept-language</stringProp>
+                <stringProp name="Header.value">uk-UA,uk;q=0.9,en-US;q=0.8,en;q=0.7</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">bpmcsrf</stringProp>
+                <stringProp name="Header.value">cxyE1Sa2JhsN0EBoBMxmne</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">content-length</stringProp>
+                <stringProp name="Header.value">69</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">content-type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">cookie</stringProp>
+                <stringProp name="Header.value">_gcl_au=1.1.134826626.1661852888; bpmRef=google.com; bpmTrackingId=3b75a52c-db52-6e94-46e7-97f1bc0c5154; bpmHref=https://www.banklviv.com/; sbjs_migrations=1418474375998%3D1; sbjs_first_add=fd%3D2022-08-30%2012%3A48%3A08%7C%7C%7Cep%3Dhttps%3A%2F%2Fwww.banklviv.com%2F%7C%7C%7Crf%3Dhttps%3A%2F%2Fwww.google.com%2F; sbjs_first=typ%3Dorganic%7C%7C%7Csrc%3Dgoogle%7C%7C%7Cmdm%3Dorganic%7C%7C%7Ccmp%3D%28none%29%7C%7C%7Ccnt%3D%28none%29%7C%7C%7Ctrm%3D%28none%29; sbjs_current=typ%3Dorganic%7C%7C%7Csrc%3Dgoogle%7C%7C%7Cmdm%3Dorganic%7C%7C%7Ccmp%3D%28none%29%7C%7C%7Ccnt%3D%28none%29%7C%7C%7Ctrm%3D%28none%29; sbjs_udata=vst%3D1%7C%7C%7Cuip%3D%28none%29%7C%7C%7Cuag%3DMozilla%2F5.0%20%28Windows%20NT%2010.0%3B%20Win64%3B%20x64%29%20AppleWebKit%2F537.36%20%28KHTML%2C%20like%20Gecko%29%20Chrome%2F96.0.4664.110%20Safari%2F537.36; _gid=GA1.2.127150300.1661852888; _fbp=fb.1.1661852888613.570851197; sbjs_current_add=fd%3D2022-08-30%2012%3A49%3A10%7C%7C%7Cep%3Dhttps%3A%2F%2Fwww.banklviv.com%2F%7C%7C%7Crf%3Dhttps%3A%2F%2Fwww.google.com%2F; _ga_ZS00SYJR19=GS1.1.1661852888.1.1.1661852950.59.0.0; _ga=GA1.1.1195995774.1661852888; BPMLOADER=aglukhfwsen3iouesv3pqfh0; UserName=66|67|65|66|67|65|49; BPMCSRF=cxyE1Sa2JhsN0EBoBMxmne</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">origin</stringProp>
+                <stringProp name="Header.value">https://app-preterra.banklviv.com</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">referer</stringProp>
+                <stringProp name="Header.value">https://app-preterra.banklviv.com/Login/NuiLogin.aspx?ReturnUrl=%2f%3fsimpleLogin&amp;simpleLogin</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">sec-ch-ua</stringProp>
+                <stringProp name="Header.value">&quot; Not A;Brand&quot;;v=&quot;99&quot;, &quot;Chromium&quot;;v=&quot;96&quot;, &quot;Google Chrome&quot;;v=&quot;96&quot;</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">sec-ch-ua-mobile</stringProp>
+                <stringProp name="Header.value">?0</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">sec-ch-ua-platform</stringProp>
+                <stringProp name="Header.value">&quot;Windows&quot;</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">sec-fetch-dest</stringProp>
+                <stringProp name="Header.value">empty</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">sec-fetch-mode</stringProp>
+                <stringProp name="Header.value">cors</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">sec-fetch-site</stringProp>
+                <stringProp name="Header.value">same-origin</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">user-agent</stringProp>
+                <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">x-request-source</stringProp>
+                <stringProp name="Header.value">ajax-provider</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">x-requested-with</stringProp>
+                <stringProp name="Header.value">XMLHttpRequest</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+            <boolProp name="ResultCollector.error_logging">false</boolProp>
+            <objProp>
+              <name>saveConfig</name>
+              <value class="SampleSaveConfiguration">
+                <time>true</time>
+                <latency>true</latency>
+                <timestamp>true</timestamp>
+                <success>true</success>
+                <label>true</label>
+                <code>true</code>
+                <message>true</message>
+                <threadName>true</threadName>
+                <dataType>true</dataType>
+                <encoding>false</encoding>
+                <assertions>true</assertions>
+                <subresults>true</subresults>
+                <responseData>false</responseData>
+                <samplerData>false</samplerData>
+                <xml>false</xml>
+                <fieldNames>true</fieldNames>
+                <responseHeaders>false</responseHeaders>
+                <requestHeaders>false</requestHeaders>
+                <responseDataOnError>false</responseDataOnError>
+                <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+                <assertionsResultsToSave>0</assertionsResultsToSave>
+                <bytes>true</bytes>
+                <sentBytes>true</sentBytes>
+                <url>true</url>
+                <threadCounts>true</threadCounts>
+                <idleTime>true</idleTime>
+                <connectTime>true</connectTime>
+              </value>
+            </objProp>
+            <stringProp name="filename"></stringProp>
+          </ResultCollector>
+          <hashTree/>
+          <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report" enabled="true">
+            <boolProp name="ResultCollector.error_logging">false</boolProp>
+            <objProp>
+              <name>saveConfig</name>
+              <value class="SampleSaveConfiguration">
+                <time>true</time>
+                <latency>true</latency>
+                <timestamp>true</timestamp>
+                <success>true</success>
+                <label>true</label>
+                <code>true</code>
+                <message>true</message>
+                <threadName>true</threadName>
+                <dataType>true</dataType>
+                <encoding>false</encoding>
+                <assertions>true</assertions>
+                <subresults>true</subresults>
+                <responseData>false</responseData>
+                <samplerData>false</samplerData>
+                <xml>false</xml>
+                <fieldNames>true</fieldNames>
+                <responseHeaders>false</responseHeaders>
+                <requestHeaders>false</requestHeaders>
+                <responseDataOnError>false</responseDataOnError>
+                <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+                <assertionsResultsToSave>0</assertionsResultsToSave>
+                <bytes>true</bytes>
+                <sentBytes>true</sentBytes>
+                <url>true</url>
+                <threadCounts>true</threadCounts>
+                <idleTime>true</idleTime>
+                <connectTime>true</connectTime>
+              </value>
+            </objProp>
+            <stringProp name="filename"></stringProp>
+          </ResultCollector>
+          <hashTree/>
+          <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Regular Expression Extractor" enabled="true">
+            <stringProp name="RegexExtractor.useHeaders">true</stringProp>
+            <stringProp name="RegexExtractor.refname">BPMCSRF</stringProp>
+            <stringProp name="RegexExtractor.regex">BPMCSRF=(.+?);</stringProp>
+            <stringProp name="RegexExtractor.template">$1$</stringProp>
+            <stringProp name="RegexExtractor.default"></stringProp>
+            <stringProp name="RegexExtractor.match_number"></stringProp>
+            <stringProp name="Sample.scope">all</stringProp>
+          </RegexExtractor>
+          <hashTree/>
+          <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Regular Expression Extractor" enabled="true">
+            <stringProp name="RegexExtractor.useHeaders">true</stringProp>
+            <stringProp name="RegexExtractor.refname">.ASPXAUTH</stringProp>
+            <stringProp name="RegexExtractor.regex">.ASPXAUTH=(.+?);</stringProp>
+            <stringProp name="RegexExtractor.template">$1$</stringProp>
+            <stringProp name="RegexExtractor.default"></stringProp>
+            <stringProp name="RegexExtractor.match_number"></stringProp>
+          </RegexExtractor>
+          <hashTree/>
+          <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Regular Expression Extractor" enabled="true">
+            <stringProp name="RegexExtractor.useHeaders">true</stringProp>
+            <stringProp name="RegexExtractor.refname">UserName</stringProp>
+            <stringProp name="RegexExtractor.regex">UserName=(.+?);</stringProp>
+            <stringProp name="RegexExtractor.template">$1$</stringProp>
+            <stringProp name="RegexExtractor.default"></stringProp>
+            <stringProp name="RegexExtractor.match_number"></stringProp>
+          </RegexExtractor>
+          <hashTree/>
+          <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="JSR223 PostProcessor" enabled="true">
+            <stringProp name="scriptLanguage">javascript</stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="cacheKey">true</stringProp>
+            <stringProp name="script">//var object = JSON.parse(prev.getResponseDataAsString());
+//
+//
+//if (!(object instanceof Object)){
+//	throw Error(&apos;Assert JSON is not object!&apos;);
+//}
+
+
+log.info(&apos;----------------&apos;)
+
+
+//log.info(${filename})
+
+
+//log.info(object.${BPMCSRF})
+
+
+//ctx.getPreviousResult().getResponseHeaders();
+
+//ctx.getPreviousResult().${BPMCSRF}
+log.info(&apos;${BPMCSRF}&apos;)
+log.info(&apos;${.ASPXAUTH}&apos;)
+log.info(&apos;${UserName}&apos;)
+</stringProp>
+          </JSR223PostProcessor>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="activ" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+  &quot;rootSchemaName&quot;: &quot;Activity&quot;,&#xd;
+  &quot;operationType&quot;: 1,&#xd;
+  &quot;includeProcessExecutionData&quot;: true,&#xd;
+  &quot;columnValues&quot;: {&#xd;
+    &quot;items&quot;: {&#xd;
+      &quot;CreatedBy&quot;: {&#xd;
+        &quot;expressionType&quot;: 2,&#xd;
+        &quot;parameter&quot;: {&#xd;
+          &quot;dataValueType&quot;: 10,&#xd;
+          &quot;value&quot;: &quot;b6a5a5a2-2701-4660-8b68-c906d98cc94b&quot;&#xd;
+        }&#xd;
+      },&#xd;
+      &quot;ModifiedBy&quot;: {&#xd;
+        &quot;expressionType&quot;: 2,&#xd;
+        &quot;parameter&quot;: {&#xd;
+          &quot;dataValueType&quot;: 10,&#xd;
+          &quot;value&quot;: &quot;b6a5a5a2-2701-4660-8b68-c906d98cc94b&quot;&#xd;
+        }&#xd;
+      },&#xd;
+      &quot;StartDate&quot;: {&#xd;
+        &quot;expressionType&quot;: 2,&#xd;
+        &quot;parameter&quot;: {&#xd;
+          &quot;dataValueType&quot;: 7,&#xd;
+          &quot;value&quot;: &quot;\&quot;2022-09-23T14:16:27.993\&quot;&quot;&#xd;
+        }&#xd;
+      },&#xd;
+      &quot;DueDate&quot;: {&#xd;
+        &quot;expressionType&quot;: 2,&#xd;
+        &quot;parameter&quot;: {&#xd;
+          &quot;dataValueType&quot;: 7,&#xd;
+          &quot;value&quot;: &quot;\&quot;2022-09-23T14:46:27.993\&quot;&quot;&#xd;
+        }&#xd;
+      },&#xd;
+      &quot;Priority&quot;: {&#xd;
+        &quot;expressionType&quot;: 2,&#xd;
+        &quot;parameter&quot;: {&#xd;
+          &quot;dataValueType&quot;: 10,&#xd;
+          &quot;value&quot;: &quot;ab96fa02-7fe6-df11-971b-001d60e938c6&quot;&#xd;
+        }&#xd;
+      },&#xd;
+      &quot;Author&quot;: {&#xd;
+        &quot;expressionType&quot;: 2,&#xd;
+        &quot;parameter&quot;: {&#xd;
+          &quot;dataValueType&quot;: 10,&#xd;
+          &quot;value&quot;: &quot;b6a5a5a2-2701-4660-8b68-c906d98cc94b&quot;&#xd;
+        }&#xd;
+      },&#xd;
+      &quot;Type&quot;: {&#xd;
+        &quot;expressionType&quot;: 2,&#xd;
+        &quot;parameter&quot;: {&#xd;
+          &quot;dataValueType&quot;: 10,&#xd;
+          &quot;value&quot;: &quot;fbe0acdc-cfc0-df11-b00f-001d60e938c6&quot;&#xd;
+        }&#xd;
+      },&#xd;
+      &quot;ActivityCategory&quot;: {&#xd;
+        &quot;expressionType&quot;: 2,&#xd;
+        &quot;parameter&quot;: {&#xd;
+          &quot;dataValueType&quot;: 10,&#xd;
+          &quot;value&quot;: &quot;f51c4643-58e6-df11-971b-001d60e938c6&quot;&#xd;
+        }&#xd;
+      },&#xd;
+      &quot;Status&quot;: {&#xd;
+        &quot;expressionType&quot;: 2,&#xd;
+        &quot;parameter&quot;: {&#xd;
+          &quot;dataValueType&quot;: 10,&#xd;
+          &quot;value&quot;: &quot;384d4b84-58e6-df11-971b-001d60e938c6&quot;&#xd;
+        }&#xd;
+      },&#xd;
+      &quot;Color&quot;: {&#xd;
+        &quot;expressionType&quot;: 2,&#xd;
+        &quot;parameter&quot;: {&#xd;
+          &quot;dataValueType&quot;: 18,&#xd;
+          &quot;value&quot;: &quot;#405f97&quot;&#xd;
+        }&#xd;
+      },&#xd;
+      &quot;Organizer&quot;: {&#xd;
+        &quot;expressionType&quot;: 2,&#xd;
+        &quot;parameter&quot;: {&#xd;
+          &quot;dataValueType&quot;: 10,&#xd;
+          &quot;value&quot;: &quot;b6a5a5a2-2701-4660-8b68-c906d98cc94b&quot;&#xd;
+        }&#xd;
+      },&#xd;
+      &quot;CallDirection&quot;: {&#xd;
+        &quot;expressionType&quot;: 2,&#xd;
+        &quot;parameter&quot;: {&#xd;
+          &quot;dataValueType&quot;: 10,&#xd;
+          &quot;value&quot;: &quot;1d96a65f-2131-4916-8825-2d142b1000b2&quot;&#xd;
+        }&#xd;
+      },&#xd;
+      &quot;ShowInScheduler&quot;: {&#xd;
+        &quot;expressionType&quot;: 2,&#xd;
+        &quot;parameter&quot;: {&#xd;
+          &quot;dataValueType&quot;: 12,&#xd;
+          &quot;value&quot;: true&#xd;
+        }&#xd;
+      },&#xd;
+      &quot;Owner&quot;: {&#xd;
+        &quot;expressionType&quot;: 2,&#xd;
+        &quot;parameter&quot;: {&#xd;
+          &quot;dataValueType&quot;: 10,&#xd;
+          &quot;value&quot;: &quot;b6a5a5a2-2701-4660-8b68-c906d98cc94b&quot;&#xd;
+        }&#xd;
+      },&#xd;
+      &quot;Title&quot;: {&#xd;
+        &quot;expressionType&quot;: 2,&#xd;
+        &quot;parameter&quot;: {&#xd;
+          &quot;dataValueType&quot;: 1,&#xd;
+          &quot;value&quot;: &quot;Test&quot;&#xd;
+        }&#xd;
+      },&#xd;
+      &quot;Contract&quot;: {&#xd;
+        &quot;expressionType&quot;: 2,&#xd;
+        &quot;parameter&quot;: {&#xd;
+          &quot;dataValueType&quot;: 10,&#xd;
+          &quot;value&quot;: null&#xd;
+        }&#xd;
+      },&#xd;
+      &quot;Document&quot;: {&#xd;
+        &quot;expressionType&quot;: 2,&#xd;
+        &quot;parameter&quot;: {&#xd;
+          &quot;dataValueType&quot;: 10,&#xd;
+          &quot;value&quot;: null&#xd;
+        }&#xd;
+      },&#xd;
+      &quot;FinApplication&quot;: {&#xd;
+        &quot;expressionType&quot;: 2,&#xd;
+        &quot;parameter&quot;: {&#xd;
+          &quot;dataValueType&quot;: 10,&#xd;
+          &quot;value&quot;: null&#xd;
+        }&#xd;
+      },&#xd;
+      &quot;ELIncident&quot;: {&#xd;
+        &quot;expressionType&quot;: 2,&#xd;
+        &quot;parameter&quot;: {&#xd;
+          &quot;dataValueType&quot;: 10,&#xd;
+          &quot;value&quot;: null&#xd;
+        }&#xd;
+      },&#xd;
+      &quot;Opportunity&quot;: {&#xd;
+        &quot;expressionType&quot;: 2,&#xd;
+        &quot;parameter&quot;: {&#xd;
+          &quot;dataValueType&quot;: 10,&#xd;
+          &quot;value&quot;: null&#xd;
+        }&#xd;
+      },&#xd;
+      &quot;Contact&quot;: {&#xd;
+        &quot;expressionType&quot;: 2,&#xd;
+        &quot;parameter&quot;: {&#xd;
+          &quot;dataValueType&quot;: 10,&#xd;
+          &quot;value&quot;: null&#xd;
+        }&#xd;
+      },&#xd;
+      &quot;OmniChat&quot;: {&#xd;
+        &quot;expressionType&quot;: 2,&#xd;
+        &quot;parameter&quot;: {&#xd;
+          &quot;dataValueType&quot;: 10,&#xd;
+          &quot;value&quot;: null&#xd;
+        }&#xd;
+      },&#xd;
+      &quot;Account&quot;: {&#xd;
+        &quot;expressionType&quot;: 2,&#xd;
+        &quot;parameter&quot;: {&#xd;
+          &quot;dataValueType&quot;: 10,&#xd;
+          &quot;value&quot;: null&#xd;
+        }&#xd;
+      }&#xd;
+    }&#xd;
+  }&#xd;
+}{&#xd;
+  &quot;rootSchemaName&quot;: &quot;Activity&quot;,&#xd;
+  &quot;operationType&quot;: 1,&#xd;
+  &quot;includeProcessExecutionData&quot;: true,&#xd;
+  &quot;columnValues&quot;: {&#xd;
+    &quot;items&quot;: {&#xd;
+      &quot;Id&quot;: {&#xd;
+        &quot;expressionType&quot;: 2,&#xd;
+        &quot;parameter&quot;: {&#xd;
+          &quot;dataValueType&quot;: 0,&#xd;
+          &quot;value&quot;: &quot;35860556-4021-4c3b-8887-f842668a0374&quot;&#xd;
+        }&#xd;
+      },&#xd;
+      &quot;CreatedBy&quot;: {&#xd;
+        &quot;expressionType&quot;: 2,&#xd;
+        &quot;parameter&quot;: {&#xd;
+          &quot;dataValueType&quot;: 10,&#xd;
+          &quot;value&quot;: &quot;b6a5a5a2-2701-4660-8b68-c906d98cc94b&quot;&#xd;
+        }&#xd;
+      },&#xd;
+      &quot;ModifiedBy&quot;: {&#xd;
+        &quot;expressionType&quot;: 2,&#xd;
+        &quot;parameter&quot;: {&#xd;
+          &quot;dataValueType&quot;: 10,&#xd;
+          &quot;value&quot;: &quot;b6a5a5a2-2701-4660-8b68-c906d98cc94b&quot;&#xd;
+        }&#xd;
+      },&#xd;
+      &quot;StartDate&quot;: {&#xd;
+        &quot;expressionType&quot;: 2,&#xd;
+        &quot;parameter&quot;: {&#xd;
+          &quot;dataValueType&quot;: 7,&#xd;
+          &quot;value&quot;: &quot;\&quot;2022-09-23T14:16:27.993\&quot;&quot;&#xd;
+        }&#xd;
+      },&#xd;
+      &quot;DueDate&quot;: {&#xd;
+        &quot;expressionType&quot;: 2,&#xd;
+        &quot;parameter&quot;: {&#xd;
+          &quot;dataValueType&quot;: 7,&#xd;
+          &quot;value&quot;: &quot;\&quot;2022-09-23T14:46:27.993\&quot;&quot;&#xd;
+        }&#xd;
+      },&#xd;
+      &quot;Priority&quot;: {&#xd;
+        &quot;expressionType&quot;: 2,&#xd;
+        &quot;parameter&quot;: {&#xd;
+          &quot;dataValueType&quot;: 10,&#xd;
+          &quot;value&quot;: &quot;ab96fa02-7fe6-df11-971b-001d60e938c6&quot;&#xd;
+        }&#xd;
+      },&#xd;
+      &quot;Author&quot;: {&#xd;
+        &quot;expressionType&quot;: 2,&#xd;
+        &quot;parameter&quot;: {&#xd;
+          &quot;dataValueType&quot;: 10,&#xd;
+          &quot;value&quot;: &quot;b6a5a5a2-2701-4660-8b68-c906d98cc94b&quot;&#xd;
+        }&#xd;
+      },&#xd;
+      &quot;Type&quot;: {&#xd;
+        &quot;expressionType&quot;: 2,&#xd;
+        &quot;parameter&quot;: {&#xd;
+          &quot;dataValueType&quot;: 10,&#xd;
+          &quot;value&quot;: &quot;fbe0acdc-cfc0-df11-b00f-001d60e938c6&quot;&#xd;
+        }&#xd;
+      },&#xd;
+      &quot;ActivityCategory&quot;: {&#xd;
+        &quot;expressionType&quot;: 2,&#xd;
+        &quot;parameter&quot;: {&#xd;
+          &quot;dataValueType&quot;: 10,&#xd;
+          &quot;value&quot;: &quot;f51c4643-58e6-df11-971b-001d60e938c6&quot;&#xd;
+        }&#xd;
+      },&#xd;
+      &quot;Status&quot;: {&#xd;
+        &quot;expressionType&quot;: 2,&#xd;
+        &quot;parameter&quot;: {&#xd;
+          &quot;dataValueType&quot;: 10,&#xd;
+          &quot;value&quot;: &quot;384d4b84-58e6-df11-971b-001d60e938c6&quot;&#xd;
+        }&#xd;
+      },&#xd;
+      &quot;Color&quot;: {&#xd;
+        &quot;expressionType&quot;: 2,&#xd;
+        &quot;parameter&quot;: {&#xd;
+          &quot;dataValueType&quot;: 18,&#xd;
+          &quot;value&quot;: &quot;#405f97&quot;&#xd;
+        }&#xd;
+      },&#xd;
+      &quot;Organizer&quot;: {&#xd;
+        &quot;expressionType&quot;: 2,&#xd;
+        &quot;parameter&quot;: {&#xd;
+          &quot;dataValueType&quot;: 10,&#xd;
+          &quot;value&quot;: &quot;b6a5a5a2-2701-4660-8b68-c906d98cc94b&quot;&#xd;
+        }&#xd;
+      },&#xd;
+      &quot;CallDirection&quot;: {&#xd;
+        &quot;expressionType&quot;: 2,&#xd;
+        &quot;parameter&quot;: {&#xd;
+          &quot;dataValueType&quot;: 10,&#xd;
+          &quot;value&quot;: &quot;1d96a65f-2131-4916-8825-2d142b1000b2&quot;&#xd;
+        }&#xd;
+      },&#xd;
+      &quot;ShowInScheduler&quot;: {&#xd;
+        &quot;expressionType&quot;: 2,&#xd;
+        &quot;parameter&quot;: {&#xd;
+          &quot;dataValueType&quot;: 12,&#xd;
+          &quot;value&quot;: true&#xd;
+        }&#xd;
+      },&#xd;
+      &quot;Owner&quot;: {&#xd;
+        &quot;expressionType&quot;: 2,&#xd;
+        &quot;parameter&quot;: {&#xd;
+          &quot;dataValueType&quot;: 10,&#xd;
+          &quot;value&quot;: &quot;b6a5a5a2-2701-4660-8b68-c906d98cc94b&quot;&#xd;
+        }&#xd;
+      },&#xd;
+      &quot;Title&quot;: {&#xd;
+        &quot;expressionType&quot;: 2,&#xd;
+        &quot;parameter&quot;: {&#xd;
+          &quot;dataValueType&quot;: 1,&#xd;
+          &quot;value&quot;: &quot;Test&quot;&#xd;
+        }&#xd;
+      },&#xd;
+      &quot;Contract&quot;: {&#xd;
+        &quot;expressionType&quot;: 2,&#xd;
+        &quot;parameter&quot;: {&#xd;
+          &quot;dataValueType&quot;: 10,&#xd;
+          &quot;value&quot;: null&#xd;
+        }&#xd;
+      },&#xd;
+      &quot;Document&quot;: {&#xd;
+        &quot;expressionType&quot;: 2,&#xd;
+        &quot;parameter&quot;: {&#xd;
+          &quot;dataValueType&quot;: 10,&#xd;
+          &quot;value&quot;: null&#xd;
+        }&#xd;
+      },&#xd;
+      &quot;FinApplication&quot;: {&#xd;
+        &quot;expressionType&quot;: 2,&#xd;
+        &quot;parameter&quot;: {&#xd;
+          &quot;dataValueType&quot;: 10,&#xd;
+          &quot;value&quot;: null&#xd;
+        }&#xd;
+      },&#xd;
+      &quot;ELIncident&quot;: {&#xd;
+        &quot;expressionType&quot;: 2,&#xd;
+        &quot;parameter&quot;: {&#xd;
+          &quot;dataValueType&quot;: 10,&#xd;
+          &quot;value&quot;: null&#xd;
+        }&#xd;
+      },&#xd;
+      &quot;Opportunity&quot;: {&#xd;
+        &quot;expressionType&quot;: 2,&#xd;
+        &quot;parameter&quot;: {&#xd;
+          &quot;dataValueType&quot;: 10,&#xd;
+          &quot;value&quot;: null&#xd;
+        }&#xd;
+      },&#xd;
+      &quot;Contact&quot;: {&#xd;
+        &quot;expressionType&quot;: 2,&#xd;
+        &quot;parameter&quot;: {&#xd;
+          &quot;dataValueType&quot;: 10,&#xd;
+          &quot;value&quot;: null&#xd;
+        }&#xd;
+      },&#xd;
+      &quot;OmniChat&quot;: {&#xd;
+        &quot;expressionType&quot;: 2,&#xd;
+        &quot;parameter&quot;: {&#xd;
+          &quot;dataValueType&quot;: 10,&#xd;
+          &quot;value&quot;: null&#xd;
+        }&#xd;
+      },&#xd;
+      &quot;Account&quot;: {&#xd;
+        &quot;expressionType&quot;: 2,&#xd;
+        &quot;parameter&quot;: {&#xd;
+          &quot;dataValueType&quot;: 10,&#xd;
+          &quot;value&quot;: null&#xd;
+        }&#xd;
+      }&#xd;
+    }&#xd;
+  }&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">bank_test.banklviv.com</stringProp>
+          <stringProp name="HTTPSampler.port">444</stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">0/DataService/json/SyncReply/InsertQuery</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">BPMCSRF</stringProp>
+                <stringProp name="Header.value">${BPMCSRF}</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Authentication</stringProp>
+                <stringProp name="Header.value">Inherit auth from parent</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">.ASPXAUTH</stringProp>
+                <stringProp name="Header.value">${.ASPXAUTH}</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">UserName</stringProp>
+                <stringProp name="Header.value">${UserName}</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Cookie</stringProp>
+                <stringProp name="Header.value">BPMSESSIONID=bjk3yvu5m13elatd4bg5ghsb; .ASPXAUTH=${.ASPXAUTH}; BPMCSRF=${BPMCSRF}; BPMLOADER=xbuscjpf41r2t40r5hkx1fd0; UserName=${UserName}</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">content-type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+            <boolProp name="ResultCollector.error_logging">false</boolProp>
+            <objProp>
+              <name>saveConfig</name>
+              <value class="SampleSaveConfiguration">
+                <time>true</time>
+                <latency>true</latency>
+                <timestamp>true</timestamp>
+                <success>true</success>
+                <label>true</label>
+                <code>true</code>
+                <message>true</message>
+                <threadName>true</threadName>
+                <dataType>true</dataType>
+                <encoding>false</encoding>
+                <assertions>true</assertions>
+                <subresults>true</subresults>
+                <responseData>false</responseData>
+                <samplerData>false</samplerData>
+                <xml>false</xml>
+                <fieldNames>true</fieldNames>
+                <responseHeaders>false</responseHeaders>
+                <requestHeaders>false</requestHeaders>
+                <responseDataOnError>false</responseDataOnError>
+                <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+                <assertionsResultsToSave>0</assertionsResultsToSave>
+                <bytes>true</bytes>
+                <sentBytes>true</sentBytes>
+                <url>true</url>
+                <threadCounts>true</threadCounts>
+                <idleTime>true</idleTime>
+                <connectTime>true</connectTime>
+              </value>
+            </objProp>
+            <stringProp name="filename"></stringProp>
+          </ResultCollector>
+          <hashTree/>
+        </hashTree>
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+      </hashTree>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>
